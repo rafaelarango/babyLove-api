@@ -19,5 +19,6 @@ db.sequelize = sequelize;
 db.users = require('../model/users')(sequelize, Sequelize);
 db.products = require('../model/products')(sequelize, Sequelize);
 db.roles = require('../model/roles')(sequelize, Sequelize);
+db.patment_methods = require('../model/payment_methods')(sequelize, Sequelize);
 
 module.exports = db;
