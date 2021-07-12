@@ -15,7 +15,9 @@ const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
+
 db.users = require('../model/users')(sequelize, Sequelize);
 db.products = require('../model/products')(sequelize, Sequelize);
+db.roles = require('../model/roles')(sequelize, Sequelize);
 
 module.exports = db;
