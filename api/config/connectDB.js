@@ -21,5 +21,6 @@ db.products = require("../model/products")(sequelize, Sequelize);
 db.roles = require("../model/roles")(sequelize, Sequelize);
 db.patment_methods = require("../model/payment_methods")(sequelize, Sequelize);
 db.orders = require("../model/orders")(sequelize, Sequelize);
+db.orders_products = require("../model/orders_products")(sequelize, Sequelize);
 
 module.exports = db;
