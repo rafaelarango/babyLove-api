@@ -16,6 +16,6 @@ db.sequelize.sync({force: false}).then(()=>{
 
 
 //iniciar server
-app.listen(port, (req, res) => {
+app.listen(port, () => {
     console.log(`Escuchando por el puerto: http://${host}:${port}`)
 })
