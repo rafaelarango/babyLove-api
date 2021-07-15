@@ -11,7 +11,7 @@ const host = process.env.HOST || "127.0.0.1";
 const db = require("./api/config/connectDB");
 
 
-//ruta de prueba
+//Conexion a la dase de datos 
 db.sequelize.sync({ force: false }).then(() => {
   console.log("drop and re-syncronised db");
 });
