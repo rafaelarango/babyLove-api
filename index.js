@@ -1,17 +1,22 @@
 const express = require("express");
 const app = express();
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 const port = process.env.PORT || 3000;
 const host = process.env.HOST || "127.0.0.1";
 const db = require("./api/config/connectDB");
 
-
-//Conexion a la dase de datos 
+//conexion a la base de datos
 db.sequelize.sync({ force: false }).then(() => {
   console.log("drop and re-syncronised db");
 });
