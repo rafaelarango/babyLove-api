@@ -3,5 +3,6 @@ module.exports = (app) => {
     var router = require("express").Router();
 
     router.post("/rol", roles.registerRol);
+    router.get("/listRoles", roles.getRols)
     app.use("/api/users", router);
 }
