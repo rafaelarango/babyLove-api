@@ -17,6 +17,7 @@ db.sequelize.sync({ force: false }).then(() => {
 });
 
 require("./api/routes/user")(app);
+require("./api/routes/rol")(app);
 
 //iniciar server
 app.listen(port, () => {
