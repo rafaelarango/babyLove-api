@@ -1,10 +1,11 @@
 const db = require("../config/connectDB");
+const UserModel = require("../model/users");
 
 module.exports = {
   registerUser: async (req, res) => {
     try {
       const users = {
-        id_rol: req.body.id_rol,
+        roleId: req.body.id_rol,
         name: req.body.name,
         type_document: req.body.type_document,
         document: req.body.document,
@@ -29,6 +30,7 @@ module.exports = {
       where: {
         email: email,
       },
+      include:db.Roles
     });
     console.log("el arreglo", !UserDatabase); // por que se niega??
     if (!UserDatabase) {
