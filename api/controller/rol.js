@@ -26,7 +26,7 @@ const registerRol = async (req, res) => {
   }
 };
 
-const getRols = async (req, res) => {
+const getRoles = async (req, res) => {
   try {
     db.Roles.findAll().then((data) => {
       res.json(data);
@@ -36,7 +36,62 @@ const getRols = async (req, res) => {
   }
 };
 
+const deleteRol = async (req, res) => {
+  const id = req.params.id;
+
+  const rolesData = await db.Roles.findOne({
+    where: {
+      id: id,
+    },
+  });
+  if (!rolesData) {
+    res.status(404).json({
+      message: "rol not found",
+    });
+  }
+
+  await db.Roles.destroy({
+    where: {
+      id: id,
+    },
+  });
+
+  res.json({
+    message: "rol destroyed successfully",
+  });
+};
+
+const upDate = async (req, res) => {
+  const rol = {
+    name: req.body.name,
+  };
+
+  const id = req.params.id;
+
+  const rolData = await db.Roles.findOne({
+    where: {
+      id: id,
+    },
+  });
+
+  if (!rolData) {
+    res.status(404).json({
+      message: "rol not found",
+    });
+  }
+
+  const rolUpDated = await db.Roles.update(rol, {
+    where: {
+      id: id,
+    },
+  });
+  //console.log("usuario actualizado:", rolUpDated);
+  res.json(rol);
+};
+
 module.exports = {
   registerRol,
-  getRols,
+  getRoles,
+  deleteRol,
+  upDate,
 };
