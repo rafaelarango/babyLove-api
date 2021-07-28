@@ -4,8 +4,11 @@ module.exports = (app) => {
 
   router.post("/rol", roles.registerRol);
   router.get("/listar", roles.getRoles);
-  router.put("/upDate/:id", roles.upDate);
   router.delete("/eliminar/:id", roles.deleteRol);
+
+
+  router.get("/listarUno/:id", roles.getRol);
+  router.put("/upDate/:id", roles.upDate);
 
   app.use("/api/roles", router);
 };
