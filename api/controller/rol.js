@@ -36,6 +36,23 @@ const getRoles = async (req, res) => {
   }
 };
 
+const getRol = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const rol = await db.Roles.findOne({
+      where:{
+        id:id
+      }
+    });
+    res.json(rol)
+    
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+
+
 const deleteRol = async (req, res) => {
   const id = req.params.id;
 
@@ -92,6 +109,7 @@ const upDate = async (req, res) => {
 module.exports = {
   registerRol,
   getRoles,
+  getRol,
   deleteRol,
   upDate,
 };
