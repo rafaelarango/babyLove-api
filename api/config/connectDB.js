@@ -1,6 +1,8 @@
 require("dotenv").config();
 
-const { Sequelize } = require("sequelize");
+const {
+  Sequelize
+} = require("sequelize");
 
 const sequelize = new Sequelize({
   database: process.env.DATABASE,
@@ -31,11 +33,5 @@ Users.belongsTo(Roles);
 
 db.Users = Users;
 db.Roles = Roles;
-
-
-
-
-
-
 
 module.exports = db;

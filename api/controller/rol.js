@@ -1,18 +1,5 @@
 const db = require("../config/connectDB");
 
-// exports.registerRol = async (req, res) => {
-//   try {
-//     const roles = {
-//       name: req.body.name,
-//     };
-//     console.log(roles);
-//     const rol = await db.Roles.create(roles);
-//     res.json(rol);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
 const registerRol = async (req, res) => {
   try {
     const roles = {
@@ -40,18 +27,15 @@ const getRol = async (req, res) => {
   try {
     const id = req.params.id;
     const rol = await db.Roles.findOne({
-      where:{
-        id:id
-      }
+      where: {
+        id: id,
+      },
     });
-    res.json(rol)
-    
+    res.json(rol);
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
-}
-
-
+};
 
 const deleteRol = async (req, res) => {
   const id = req.params.id;
@@ -102,7 +86,6 @@ const upDate = async (req, res) => {
       id: id,
     },
   });
-  //console.log("usuario actualizado:", rolUpDated);
   res.json(rol);
 };
 
