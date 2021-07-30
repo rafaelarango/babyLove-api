@@ -30,19 +30,21 @@ module.exports = {
       where: {
         email: email,
       },
-      include:db.Roles
+      include: db.Roles,
     });
     console.log("el arreglo", !UserDatabase); // por que se niega??
     if (!UserDatabase) {
-      res.status(404).json({ message: "No se encontro el usuario" });
+      res.status(404).json({
+        message: "No se encontro el usuario",
+      });
     }
     if (password === UserDatabase.password) {
       console.log("password se encontro" + UserDatabase);
       res.json(UserDatabase);
     } else {
-      res
-        .status(404)
-        .json({ message: "No se encontro usuario y/o contraseña" });
+      res.status(404).json({
+        message: "No se encontro usuario y/o contraseña",
+      });
     }
   },
 };
